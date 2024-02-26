@@ -1,0 +1,130 @@
+$rating-back: #e5f6ff;
+$rating-color: #2a92ce;
+
+@mixin card-grid-theme($vertical) {
+    position: relative;
+    display: grid;
+    min-height: 30vh;
+
+    @if $vertical {
+        grid-template-columns: auto;
+    }
+
+    @else {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+}
+
+.card {
+    @include card-grid-theme(false);
+    margin: 1.5em 0;
+    &>div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    & .rating {
+        background-color: $rating-back;
+        color: $rating-color;
+        width: 40%;
+        margin: 0 auto;
+        padding: 0.6em;
+        text-align: center;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+        h1 {
+            font-weight: 400;
+        }
+    }
+}
+
+.card-number {
+    position: absolute;
+    color: #777777;
+    font-weight: 500;
+    border: 1px solid #e0e0e0;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -20px;
+    top: 55px;
+}
+
+.card-highlight {
+    position: absolute;
+    background-color: #ff7b00;
+    color: #fff;
+    display: inline-block;
+    padding: 0.5em;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.card-body-highlight-1 {
+    padding: 10px 0 10px 20px;
+}
+
+.card-body-highlight-2 {
+    margin: 10px 0 10px 20px;
+    padding: 10px;
+    background-color: #fff4ea;
+    border-radius: 10px;
+    & ul {
+        list-style-type: none;
+    }
+
+    & span {
+        padding: 5px;
+        color: #2a92ce;
+        background-color: #fff;
+    }
+}
+
+.card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
+    text-align: center;
+    color: #777777;
+}
+
+.card-body {
+    color: #777777;
+
+    & span {
+        margin: 0 7px;
+    }
+
+    & .price-disc {
+        font-size: 1.6em;
+    }
+
+    & .discount {
+        color: #ff0000;
+    }
+}
+
+.card-vertical {
+    @include card-grid-theme(true);
+}
+
+.card-img {
+    img {
+        max-width: 50%;
+        max-height: 60%;
+    }
+}
+
+.card-group {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1em;
+}

@@ -1,7 +1,7 @@
+@use "./card.scss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-$rating-back: #e5f6ff;
-$rating-color: #2a92ce;
+$nav-back: #2c2323;
 $button-color: #55b4f3;
 
 * {
@@ -10,173 +10,116 @@ $button-color: #55b4f3;
     font-family: 'Poppins', sans-serif;
 }
 
-.main-head{
+.main-head {
     font-size: 4em;
 }
 
-.sub-head{
+.sub-head {
     font-size: 3em;
 }
 
-.main-head, .sub-head{
+.main-head,
+.sub-head {
     font-weight: 300;
     padding: 0.5em 0;
 }
 
-nav{    
-    background-color: #2c2323;
+nav {
+    background-color: $nav-back;
     color: #fff;
-    padding: 1em;    
-    & > div{
+    padding: 1em;
+
+    &>div {
         display: flex;
         justify-content: space-evenly;
-        // border: 1px solid red;
+
+        & button {
+            background-color: $nav-back;
+        }
     }
 }
 
-input{
+.nav-sidebar {
+    display: none;
+}
+
+.side-bar {
+    position: fixed;
+    background-color: $nav-back;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    z-index: 10;
+    transition: left 0.5s;
+}
+
+.open {
+    left: 0;
+}
+
+.close {
+    left: -100%;
+}
+
+.nav-links {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40vh;
+}
+
+input {
     border: none;
     border-radius: 8px;
     padding: 0.4em;
 }
 
-// main{
-//     border: 1px solid red;
-// }
-
-.view-width{
+.view-width {
     margin: auto;
-    width: 70%;
+    width: 60%;
 }
 
-.card{
-    position: relative;
-    & .card-number{
-        position: absolute;
-        color: #777777;
-        font-weight: 500;
-        border: 1px solid #e0e0e0;        
-        width: 2.5em;
-        height: 2.5em;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        left: -20px;
-        top: 55px;   
-    }
-    & .card-highlight{
-        background-color: #ff7b00;
-        color: #fff;
-        display: inline-block;
-        padding: 0.5em;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-    }
+.tag {
+    background-color: #e0e0e0;
+    color: #00548b;
+    font-size: small;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 0 5px;
 }
 
-.card-grid{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    // & > div{
-    //     border: 1px solid red;
-    // }
-    min-height: 30vh;
-    & .card-img{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    & img{
-        max-width: 50%;        
-        max-height: 60%;
-    }
-    & > div:last-child{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    & .rating{
-        background-color: $rating-back;
-        color: $rating-color;
-        width: 40%;
-        margin: 0 auto;
-        padding: 0.6em;
-        text-align: center;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        h1{
-            font-weight: 400;
-        }
-    }
-}
-
-.card-vertical{
-    // border: 1px solid red;
-    width: 400px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    & .card-img{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    & img{
-        max-width: 50%;        
-        max-height: 60%;
-    }
-    & .card-title{
-        text-align: center;
-        color: #777777;
-    }
-    & .card-body{
-        color: #777777;
-        & span{
-            margin: 0 7px;
-        }
-        & .price-disc{
-            font-size: 1.6em;
-        }
-        & .discount{
-            color: #ff0000;
-        }
-    }
-    & .tag{
-        background-color: #e0e0e0;
-        color: #00548b;
-        font-size: small;
-        padding: 5px;
-        border-radius: 8px;
-        margin: 0 5px;
-    }    
-}
-
-.card-group{
-    display: grid;
-    grid-template-columns: auto auto auto;    
-    // border: 1px solid green;
-}
-
-button{
+button {
     border: none;
     padding: 0.8em;
     background-color: $button-color;
     color: #fff;
     border-radius: 10px;
     font-size: 1em;
+
+    & a {
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
-.cat-list{
+button:hover {
+    background-color: #00548b;
+}
+
+.cat-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     font-size: small;
     color: #777777;
-    padding: 0.8em 0;
+    & div {
+        padding: 1em;
+    }
 }
 
-.notice{
+.notice {
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
     color: #777777;
@@ -185,30 +128,33 @@ button{
     justify-content: space-between;
 }
 
-.action-banner{
+.action-banner {
     display: flex;
     justify-content: space-between;
     padding: 5em 0;
-    & .action-font{
+
+    & .action-font {
         font-weight: 400;
         color: #777777;
     }
-    & .action-button{
+
+    & .action-button {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
 }
 
-.footer-cols{
+.footer-cols {
     display: flex;
-    // border: 1px solid red;
     justify-content: space-around;
-    & > div{
-        h3{
+
+    &>div {
+        h3 {
             font-weight: 400;
             text-transform: uppercase;
         }
-        div{
+
+        div {
             font-size: small;
             margin: 6px 0;
             color: #e0e0e0;
@@ -216,9 +162,81 @@ button{
     }
 }
 
-footer{
+footer {
     background-color: #2c2323;
     color: #fff;
     padding: 3em;
     height: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+    .view-width {
+        width: 90%;
+    }
+
+    .main-head {
+        font-size: 2em;
+    }
+
+    .sub-head {
+        font-size: 1.5em;
+    }
+
+    .card {
+        grid-template-columns: auto;
+    }
+
+    .card-vertical {
+        min-height: 15vh;
+        width: 200px;
+    }
+
+    .card,
+    .card-vertical {
+        gap: 5px;
+    }
+
+    .card-body {
+        font-size: 0.8em;
+    }
+
+    .tag {
+        padding: 3px;
+        font-size: x-small;
+    }
+
+    .card-group {
+        overflow-x: scroll;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .nav-sidebar {
+        display: block;
+        background-color: $nav-back;
+        color: #fff;
+        padding: 0.7em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .notice {
+        padding: 0.4em 0;
+        font-size: small;
+    }
+
+    .cat-list {
+        & div {
+            padding: 0.5em;
+        }
+    }
+
+    .footer-cols {
+        &>div:last-child {
+            display: none;
+        }
+    }
 }

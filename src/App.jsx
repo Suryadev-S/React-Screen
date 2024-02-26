@@ -24,10 +24,10 @@ function App() {
       </section>
       <Categories categories={catg} />
       <main className='view-width'>
-        <Card />
-        <Card />        
-        <Card />
-        <Card />
+        <Card title={"WixPro 72-inch Responsive Website Builder"}/>
+        <Card title={"SiteCraft 68-inch web builder"}/>    
+        <Card title={"WixPro 72-inch Responsive Website Builder"}/>
+        <Card title={"CDK Responsive Builder"}/>
         <h2 className='sub-head'>Related deals you might like</h2>
         <div className="card-group">
           <CardVertical />
